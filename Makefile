@@ -11,6 +11,13 @@ COMPILED_TEST=$(BUILDDIR)/compiled_test.js
 
 setup:
 	mkdir -p $(BUILDDIR) $(LIBDIR)
+	cd $(LIBDIR); \
+	curl -O https://raw.github.com/mootoh/qunit/closure_compiler_and_nodejs/qunit/qunit.js; \
+	curl -O https://raw.github.com/mootoh/qunit-tap/closure_compiler_and_nodejs/lib/qunit-tap.js; \
+	curl -O https://raw.github.com/mootoh/qunit-tap/closure_compiler_and_nodejs/qunit-tap_extern.js; \
+	curl -O https://raw.github.com/mootoh/qunit/closure_compiler_and_nodejs/addons/qunit_extern.js; \
+	curl -O http://closure-compiler.googlecode.com/files/compiler-latest.zip; \
+	unzip compiler-latest.zip
 
 $(ORIGINAL):test.js main.js
 	mkdir -p $(BUILDDIR)
